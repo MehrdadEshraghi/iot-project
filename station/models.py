@@ -7,7 +7,7 @@ class Sensor(models.Model):
     model = models.CharField(max_length=30)
     sampling_rate = models.CharField(max_length=30)
     operational_capacity = models.DecimalField(decimal_places=3, max_digits=7)
-    module = models.ForeignKey('Module', blank=True, null=True,on_delete=models.CASCADE)
+    module = models.ForeignKey('Module', on_delete=models.CASCADE, blank=True, null=True)
     # logs = models.ForeignKey('Log', on_delete=models.CASCADE, related_name='+', blank=True, null=True)
 
 class Module(models.Model):
@@ -31,5 +31,6 @@ class Log(models.Model):
     value = models.DecimalField(decimal_places=3, max_digits=7)
     unit = models.CharField(max_length=10, choices=[('one', 'two'), ('three', 'four')])
     type = models.CharField(max_length=10, choices=[('one', 'two'), ('three', 'four')])
-    date = models.DateField()
-    time = models.TimeField()
+    createdAt = models.DateTimeField(auto_now_add=True)
+    # date = models.DateField()
+    # time = models.TimeField()
