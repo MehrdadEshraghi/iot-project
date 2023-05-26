@@ -8,6 +8,13 @@ class LogSerializer(serializers.ModelSerializer):
             'module_id', 't_value',
             'p_value',
         )
+class GetLogSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Log
+        fields = (
+            'module_id', 't_value',
+            'p_value', 'createdAt',
+        )
 class StationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Station

@@ -6,7 +6,7 @@ from .serializers import *
 @api_view(['GET'])
 def getLogs(request):
     items = Log.objects.all()
-    serializer = LogSerializer(items, many=True)
+    serializer = GetLogSerializer(items, many=True)
 
     return Response(serializer.data)
 
