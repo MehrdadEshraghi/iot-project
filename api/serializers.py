@@ -4,7 +4,10 @@ from station.models import *
 class LogSerializer(serializers.ModelSerializer):
     class Meta:
         model = Log
-        fields = '__all__'
+        fields = (
+            'module_id', 't_value',
+            'p_value',
+        )
 class StationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Station
